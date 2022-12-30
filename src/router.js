@@ -19,6 +19,11 @@ const routes = [
       path: "/tours",
       name: "TourView",
       component: TourView,
+      beforeEnter: (to, from, next) => {
+        const store = useTourStore();
+        store.$reset;
+        next();
+      }
     },
     {
       path: "/guides",
@@ -36,6 +41,7 @@ const routes = [
       component: TourDetail,
       beforeEnter: (to, from, next) => {
         const store = useTourStore();
+        store.$reset;
         store.fetchTourbyId(to.params.id)
         .then(() => {
           next()
