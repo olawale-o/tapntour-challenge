@@ -20,7 +20,7 @@ export default {
   },
   created: function () {
     this.$nextTick(function () {
-      this.$store.dispatch("fetchTours")
+      // this.$store.dispatch("fetchTours")
     })
   },
   methods: {

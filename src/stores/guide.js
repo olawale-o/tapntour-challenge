@@ -14,8 +14,7 @@ export const useGuideStore = defineStore({
       this.guides = []
       this.loading = true
       try {
-        this.guides = await fetch(
-          guide_endpoint, {
+        this.guides = await fetch(guide_endpoint,{
           method: 'POST',
         })
         .then((response) => response.json())
