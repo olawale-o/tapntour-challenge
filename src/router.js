@@ -14,6 +14,11 @@ const routes = [
       path: "/",
       name: "HomeLayout",
       component: HomeLayout,
+      beforeEnter: (to, from, next) => {
+        const store = useTourStore();
+        store.$reset;
+        next();
+      }
     },
     {
       path: "/tours",
