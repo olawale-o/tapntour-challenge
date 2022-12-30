@@ -29,7 +29,7 @@
         </span>
       </button>
     </div> 
-    <article @click="goToDetail(tour.id)" class="flex items-start space-x-6 p-6">
+    <article class="flex items-start space-x-6 p-6">
       <img :src="tour.image" alt="" class=" object-cover h-48 w-28 flex-none rounded-md bg-slate-100" />
       <div class="min-w-0 relative flex-auto">
         <h2 class="font-semibold text-slate-900 truncate pr-20">{{ tour.name }}</h2>
