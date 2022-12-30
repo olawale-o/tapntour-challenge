@@ -21,11 +21,9 @@
   import { useTourStore } from '@/stores/tour'
 
   import TourItem from '@/menu/tour/TourItem.vue'
-
   import NavView from '@/components/NavView.vue'
   import NavItem from '@/components/NavItem.vue'
   import ListView from '@/components/ListView.vue'
-
 
   export default defineComponent({
     components: {

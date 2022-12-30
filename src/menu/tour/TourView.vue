@@ -1,7 +1,7 @@
 <template>
-<div>
-<TourList></TourList>
-</div>
+  <div>
+    <TourList></TourList>
+  </div>
 </template>
 <script>
 import TourList from '@/menu/tour/TourList.vue'

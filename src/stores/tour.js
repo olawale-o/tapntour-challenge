@@ -42,7 +42,6 @@ export const useTourStore = defineStore({
         })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data)
           return data[0];
         })
       } catch (error) {
