@@ -32,24 +32,26 @@
 
 <script>
 
-import LoadingLayout from '@/layouts/LoadingLayout.vue'
-import HeaderLayout from '@/layouts/HeaderLayout.vue'
-import FooterLayout from '@/layouts/FooterLayout.vue'
+import LoadingScreen from '@/layouts/LoadingLayout.vue'
+import HeaderScreen from '@/layouts/HeaderLayout.vue'
+import FooterScreen from '@/layouts/FooterLayout.vue'
 
 export default {
   name: 'App',
   components: {
-    LoadingLayout,
-    HeaderLayout,
-    FooterLayout
+    LoadingScreen,
+    HeaderScreen,
+    FooterScreen
   },
   data() {
     return {
-      isLoading:false
+      isLoading:false,
     }
   }, 
   methods: {
+    popupOpen: function() {
+      console.log('pop up')
+    }
   }
-
 }
 </script>
