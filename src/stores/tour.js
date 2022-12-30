@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-const tour_endpoint     = 'https://tapntour-wk-db.glyfo.workers.dev/api/tours'
+const tour_endpoint = 'https://tapntour-wk-db.glyfo.workers.dev/api/tours';
 
 export const useTourStore = defineStore({
   id: 'tour',
@@ -19,8 +19,14 @@ export const useTourStore = defineStore({
       this.tours = []
       this.loading = true
       try {
-        this.tours = await fetch(tour_endpoint)
-        .then((response) => response.json()) 
+        this.tours = await fetch(tour_endpoint,{
+          method: 'POST',
+        })
+        .then((response) => {
+          return response.json()
+        }).then((data) => {
+          return data;
+        })
       } catch (error) {
         this.error = error
       } finally {
@@ -31,8 +37,14 @@ export const useTourStore = defineStore({
       this.tour = null
       this.loading = true
       try {
-        this.post = await fetch(tourbyid_endpoint)
+        this.tour = await fetch(`${tour_endpoint}/${id}`, {
+          method: 'POST',
+        })
         .then((response) => response.json())
+        .then((data) => {
+          console.log(data)
+          return data[0];
+        })
       } catch (error) {
         this.error = error
       } finally {
