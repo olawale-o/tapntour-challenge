@@ -6,15 +6,17 @@
       <NavItem href="" v-on:click:active=true >England</NavItem>
     </NavView>
     <ListView>
-      <p v-if="loading" >Loading tours...</p>
+      <p v-if="loading">Loading tours...</p>
       <p v-if="error">{{ error.message }}</p>
-      <TourItem  v-if="tours" v-for="(item, index) in tours" :key="index" :item="item.data" />
+      <template v-if="tours">
+        <TourItem v-for="(item, index) in tours" :key="index" :item="item" />
+      </template>
     </ListView>
   </div>
 </template>
 
 <script> 
-  import { defineComponent,computed } from "vue";
+  import { defineComponent } from "vue";
   import { storeToRefs } from 'pinia'
   import { useTourStore } from '@/stores/tour'
 
@@ -30,17 +32,22 @@
       NavView,
       NavItem,
       ListView,
-      ListItem
+      TourItem,
     },
     setup() {
-      const { tours, loading, error }  = storeToRefs(usePostStore())
-      const { fetchTours }             = useTourStore()
+      const { tours, loading, error } = storeToRefs(useTourStore())
+      const { fetchTours } = useTourStore()
 
       fetchTours()
+      return {
+        tours,
+        loading,
+        error,
+      }
     },
-  methods: {
+    methods: {
   
-  }
+    }
 });
 
 </script>
