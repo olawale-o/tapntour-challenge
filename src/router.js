@@ -29,7 +29,7 @@ const routes = [
       component: SignUpView,
     },
     {
-      path: "/TourDetail",
+      path: "/TourDetail/:id",
       name: "TourDetail",
       component: TourDetail,
     }
