@@ -1,6 +1,6 @@
 <template>
   <article @click="goToDetail(item.id)" class="flex items-start space-x-6 p-6">
-    <img :src="item.image" alt="" class=" object-cover h-48 w-28 flex-none rounded-md bg-slate-100" />
+    <img :src="item.image" :alt="item.name" class=" object-cover h-48 w-28 flex-none rounded-md bg-slate-100" />
     <div class="min-w-0 relative flex-auto">
       <h2 class="font-semibold text-slate-900 truncate pr-20">{{ item.name }}</h2>
       <dl class="mt-2 flex flex-wrap text-sm leading-6 font-medium">
@@ -15,7 +15,11 @@
         </div>
       </dl>
       <DescriptionItem></DescriptionItem>
-      <FeatureItem></FeatureItem>
+      <FeatureItem
+        :stops="item.stops"
+        :mode="item.mode"
+        :duration="item.duration"
+      />
     </div>
   </article>  
 </template>
@@ -34,6 +38,6 @@
     goToDetail(id) {
       this.$router.push(`/TourDetail/${id}`)
     }
-  }
+  },
 }   
 </script>     
