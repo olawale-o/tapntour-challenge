@@ -39,7 +39,10 @@ export const useTourStore = defineStore({
           method: 'POST',
         })
         .then((response) => response.json())
-        .then((data) => data)
+        .then((data) => {
+          console.log(data);
+          return data;
+        })
       } catch (error) {
         this.error = error
       } finally {

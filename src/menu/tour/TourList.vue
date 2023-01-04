@@ -8,8 +8,11 @@
     <ListView>
       <p v-if="loading">Loading tours...</p>
       <p v-if="error">{{ error.message }}</p>
-      <template v-if="tours">
+      <template v-if="tours.length > 0">
         <TourItem v-for="(item, index) in tours" :key="index" :item="item" />
+      </template>
+      <template v-else>
+        <p>Cannot fetch tours for now</p>
       </template>
     </ListView>
   </div>
