@@ -24,9 +24,7 @@ export const useTourStore = defineStore({
         })
         .then((response) => {
           return response.json()
-        }).then((data) => {
-          return data;
-        })
+        }).then((data) => data)
       } catch (error) {
         this.error = error
       } finally {
@@ -37,13 +35,11 @@ export const useTourStore = defineStore({
       this.tour = null
       this.loading = true
       try {
-        this.tour = await fetch(`${tour_endpoint}/${id}`, {
+        this.tour = await fetch(`${tour_endpoint}/detail/${id}`, {
           method: 'POST',
         })
         .then((response) => response.json())
-        .then((data) => {
-          return data[0];
-        })
+        .then((data) => data)
       } catch (error) {
         this.error = error
       } finally {
